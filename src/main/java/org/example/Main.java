@@ -5,17 +5,21 @@ import java.util.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println(checkForPalindrome("I did, did I?")); // true (palindrom)
+        System.out.println(checkForPalindrome("Racecar")); // true (palindrom)
+        System.out.println(checkForPalindrome("hello")); // false (palindrom değil)
+        System.out.println(checkForPalindrome("Was it a car or a cat I saw ?")); // true (palindrom)
 
     }
 
 
     public static boolean checkForPalindrome(String text) {
-String cleanedStr = text.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+String cleanedStr = text.replaceAll("[^a-zA-Z0-9]","").toLowerCase();
         LinkedList<Character> charList = new LinkedList<>();
-        for(char c : cleanedStr.toCharArray()) {
+        for(char c: cleanedStr.toCharArray()) {
             charList.add(c);
         }
-        while (charList.size() > 1) {
+        while (charList.size()> 1) {
             if(!charList.pollFirst().equals(charList.pollLast())){
                 return false;
             }
